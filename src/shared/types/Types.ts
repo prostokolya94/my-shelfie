@@ -3,11 +3,24 @@ export enum Genre {
     DRAMA,
     HORROR,
     FANTASY,
-    ROMFANT,
-    YOUNGADULT,
+    ROM_FANT,
+    YOUNG_ADULT,
     FANTASTIC,
-    NONFICTION
+    NON_FICTION
 }
+
+export type Owner = {
+    id: number;
+    name: string;
+    sureName: string;
+    libraries: Library[];
+};
+
+export type Library = {
+    id: number;
+    owner: Owner;
+    bookCases: BookCase[];
+};
 
 export type BookCase = {
     id: number;
@@ -17,7 +30,6 @@ export type BookCase = {
 
 export type Shelf = {
     id: number;
-    bookCaseId: number;
     booksVolume: number;
     books: Book[];
 };
@@ -28,6 +40,7 @@ export type Book = {
     bookCaseId: number;
     title: string;
     rating: 1 | 2 | 3 | 4 | 5;
+    isFinished: boolean;
     note: Note;
     author: string;
     genre: Genre;
@@ -38,3 +51,9 @@ export type Note = {
     created: number;
     content: string;
 };
+
+export interface BookCaseClass extends BookCase {
+    addShelf(shelf: Shelf): void;
+    deleteShelf(shelfId: number): void;
+    changeSkin(): void;
+}

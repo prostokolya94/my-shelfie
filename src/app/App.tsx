@@ -1,7 +1,14 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
+import Screen from "./Screen";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
-    return <div className='App'>Hello World</div>;
+    return (
+        <BrowserRouter>
+            <Screen />
+        </BrowserRouter>
+    );
 }
 
-export default App;
+export default observer(App);
