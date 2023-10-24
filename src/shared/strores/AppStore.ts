@@ -14,7 +14,9 @@ export class AppStore {
     }
 
     login(owner: Owner) {
-        this._owner = owner;
+        if (StorageService.postCurrentOwner(owner)) {
+            this._owner = owner;
+        }
     }
     logout() {
         this._owner = null;
@@ -22,5 +24,9 @@ export class AppStore {
 
     get owner(): Owner | null {
         return this._owner;
+    }
+
+    set owner(value: Owner | null) {
+        this._owner = value;
     }
 }

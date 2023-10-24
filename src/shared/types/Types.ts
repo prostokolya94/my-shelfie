@@ -13,25 +13,26 @@ export type Owner = {
     id: number;
     name: string;
     sureName: string;
-    libraries: Library[];
+    password: string;
+    librariesIds: number[];
 };
 
 export type Library = {
     id: number;
-    owner: Owner;
-    bookCases: BookCase[];
+    ownerId: number;
+    bookCasesIds: number[];
 };
 
 export type BookCase = {
     id: number;
-    shelfList: Shelf[];
+    shelfsIds: number[];
     skin: any;
 };
 
 export type Shelf = {
     id: number;
     booksVolume: number;
-    books: Book[];
+    booksIds: number[];
 };
 
 export type Book = {
@@ -51,9 +52,3 @@ export type Note = {
     created: number;
     content: string;
 };
-
-export interface BookCaseClass extends BookCase {
-    addShelf(shelf: Shelf): void;
-    deleteShelf(shelfId: number): void;
-    changeSkin(): void;
-}
