@@ -8,6 +8,7 @@ export const ExternalWrapper = styled.div`
     background: beige;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 `;
 
 export const EntryWrapper = styled.div`

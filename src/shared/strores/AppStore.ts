@@ -9,17 +9,18 @@ export class AppStore {
 
     private _owner: Owner | null = null;
 
-    registration(newOwner: Owner) {
+    public registration(newOwner: Owner) {
         StorageService.createNewOwner(newOwner);
     }
 
-    login(owner: Owner) {
+    public login(owner: Owner) {
         if (StorageService.postCurrentOwner(owner)) {
             this._owner = owner;
         }
     }
-    logout() {
+    public logout() {
         this._owner = null;
+        StorageService.clearCurrentOwner();
     }
 
     get owner(): Owner | null {

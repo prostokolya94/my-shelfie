@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 
 const LibraryPage = () => {
     return <div>Library Page</div>;
 };
 
-export default LibraryPage;
+export default memo(LibraryPage);
